@@ -3,10 +3,18 @@ const CODES = {
   Z: 90
 }
 
-function toCell(_, col) {
-  return `
-    <div class="cell" contenteditable data-col="${col}"></div>
-  `
+function toCell(row) {
+  return function(_, col) {
+    return `
+      <div
+        class="cell"
+        contenteditable
+        data-type="cell"
+        data-col="${col}"
+        data-id="${row}:${col}"
+      ></div>
+    `
+  }
 }
 
 function toColumn(col, index) {
@@ -48,7 +56,7 @@ export function createTable(rowsCount = 15) {
   for (let index = 0; index < rowsCount; index++) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell)
+        .map(toCell(index))
         .join('')
     rows.push(createRow(index + 1, cells))
   }
