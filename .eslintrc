@@ -3,9 +3,11 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "extends": ["eslint:recommended", "google"],
+  "plugins": ["jest"],
   "rules": {
     "semi": "off",
     "arrow-parens": "off",
