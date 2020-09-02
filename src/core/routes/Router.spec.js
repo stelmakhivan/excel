@@ -31,6 +31,13 @@ describe('Router:', () => {
 
   test('should render DashboardPage', () => {
     router.changePageHandler()
-    expect($root.innerHTML).toBe('<div>dashboard</div>')
+    expect($root.innerHTML).toBe(`<div class="loader">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>`)
   })
 })
